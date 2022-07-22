@@ -2,7 +2,7 @@
 # On Cisco Switch #
 ###################
 
-copy scp//dradmins@10.38.129.34/NET_DUMP/nx_shutint.py bootflash:
+copy scp//yourusername@yourlocalserver/NET_DUMP/nx_shutint.py bootflash:
 
 conf t
 event manager applet PROACTIVE_SHUTDOWN_PORT

@@ -1,5 +1,10 @@
+###################
+# On Cisco Switch #
+###################
+
 copy scp//dradmins@10.38.129.34/NET_DUMP/nx_shutint.py bootflash:
 
+conf t
 event manager applet PROACTIVE_SHUTDOWN_PORT
   event syslog tag sfp_warning pattern ".*%ETHPORT-4-IF_SFP_WARNING:.* Power Warning"
   event syslog tag port_down pattern ".*%ETH_PORT_CHANNEL-5-FOP_CHANGED:.* to none"

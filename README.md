@@ -1,9 +1,7 @@
 # EEM-Shutdown-for-Cisco
 Shutdown Interface Automatically on Cisco
 
-###########
 # Pre-req #
-###########
 - show processes cpu
 - show processes memory
 - show logging | last 20
@@ -12,9 +10,7 @@ Shutdown Interface Automatically on Cisco
 - show vpc summary
 - show port-channel summary
 
-##############
 # Deployment #
-##############
 copy scp//dradmins@10.38.129.34/NET_DUMP/nx_shutint.py bootflash:
 event manager applet PROACTIVE_SHUTDOWN_PORT
   event syslog tag sfp_warning pattern ".*%ETHPORT-4-IF_SFP_WARNING:.* Power Warning"
@@ -23,9 +19,7 @@ event manager applet PROACTIVE_SHUTDOWN_PORT
   action 1.0 cli python bootflash:///nx_shutint.py
   action 2.0 syslog priority alerts msg interface shutdown by EEM Script. Do show int desc
   
-###################
 # Post deployment #
-###################
 - show event manager history event
 - show processes cpu
 - show processes memory
